@@ -9,6 +9,20 @@ import streamlit as st
 import base64
 import tempfile
 
+st.set_page_config(page_title="People Monitoing", page_icon="🤖")
+hide_streamlit_style = """
+            <style>
+            .css-1jc7ptx, .e1ewe7hr3, .viewerBadge_container__1QSob,
+            .styles_viewerBadge__1yB5_, .viewerBadge_link__1S137,
+            .viewerBadge_text__1JaDK {display: none;}
+            MainMenu {visibility: hidden;}
+            header { visibility: hidden; }
+            footer {visibility: hidden;}
+            #GithubIcon {visibility: hidden;}
+            </style>
+            """
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+
 ARG_confidence = st.sidebar.slider("Confidence (minimum probability to filter weak detections)", 0.0, 1.0, 0.4)
 ARG_skip_frames = st.sidebar.slider("Skip Frames (# of skip frames between detections)", 1, 100, 30)
 threshold = st.sidebar.slider("Threshold (Alert when # of people in one area)", 1, 15, 3)
